@@ -232,7 +232,28 @@ const routes = [
         component: AlmacenForm,
         novisible: true
       },
-      
+      {
+        path: '/catalogo/clientes/list',
+        exact: true,
+        title: 'Lista Cliente',
+        icon: 'dns',
+        component: ClienteList
+      },
+      {
+        path: '/catalogo/clientes/new',
+        exact: true,
+        title: 'Nuevo Cliente',
+        component: ClienteForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/clientes/edit/:id',
+        exact: true,
+        title: 'Editar Clientes',
+        icon: 'dns',
+        component: ClienteForm,
+        novisible: true
+      },
     ]
   }
 ]
