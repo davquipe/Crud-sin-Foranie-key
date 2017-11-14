@@ -6,7 +6,7 @@ import Avatar from 'material-ui/Avatar'
 //import TextField from 'material-ui/TextField';
 import TextField from 'material-ui/TextField';
 
-import { save, getById, update } from '../../actions/detalleCompra-action'
+import { save, getById, update } from '../../actions/almacen-action'
 import { connect } from 'react-redux'
 
 class Form extends Component {
@@ -26,9 +26,8 @@ class Form extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             
-            nro_doc: props.data ? props.data.nro_doc : '',
-            cantidad: props.data ? props.data.cantidad : '',
-            precio_unitario: props.data ? props.data.precio_unitario : ''
+            nombre: props.data ? props.data.nombre : '',
+            direccion: props.data ? props.data.direccion : ''
         }
     }
     /*
@@ -71,9 +70,8 @@ class Form extends Component {
                 this.setState({
                     id: data.id,
                     
-                    nro_doc: data.nro_doc,
-                    cantidad: data.cantidad,
-                    precio_unitario: data.precio_unitario
+                    nombre: data.nombre,
+                    direccion: data.direccion
                 });
             });
         }
@@ -109,7 +107,7 @@ class Form extends Component {
                 <CardHeader
                     avatar={
                         <Avatar aria-label="Recipe" >
-                            R
+                            A
                           </Avatar>
                     }
                     title="User Form"
@@ -117,40 +115,31 @@ class Form extends Component {
                 />
                 <CardContent>
                 <TextField
-                        id="nro_doc"
-                        label="Numero de Documento"
-                        name="nro_doc"
-                        value={this.state.nro_doc}
-                        onChange={this.handleChange}
-                        margin="normal"
-                    /> 
-                    <p></p> 
-                    <TextField
-                        id="cantidad"
-                        label="Cantidad"
-                        name="cantidad"
-                        value={this.state.cantidad}
+                        id="nombre"
+                        label="Nombre"
+                        name="nombre"
+                        value={this.state.nombre}
                         onChange={this.handleChange}
                         margin="normal"
                     /> 
                     <p></p>
                     <TextField
-                        id="precio_unitario"
-                        label="Precio Unitario"
-                        name="precio_unitario"
-                        value={this.state.precio_unitario}
+                        id="direccion"
+                        label="Direccion"
+                        name="direccion"
+                        value={this.state.direccion}
                         onChange={this.handleChange}
                         margin="normal"
-                    />  
+                    /> 
+                    <p></p>
                     <form onSubmit={this.handleSubmit}>
-                        <p>
-                        <button type="submit">Guardar</button>
-                      </p>
+
+                        <input type="submit" value="Submit" />
                     </form>
                 </CardContent>
             </Card>
         )
-    }   
+    }
 }
 
 Form.propTypes = {
