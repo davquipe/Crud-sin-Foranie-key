@@ -58,4 +58,4 @@ const clienteReducer = (state = initialState, action) => {
 
 }
 
-export default categoriaReducer
+export default clienteReducer

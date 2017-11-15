@@ -15,6 +15,9 @@ import DetalleCompraList  from './detalleCompras/List'
 import DetalleCompraForm  from './detalleCompras/Form'
 import AlmacenList  from './almacenes/List'
 import AlmacenForm  from './almacenes/Form'
+import ClienteList  from './clientes/List'
+import ClienteForm  from './clientes/Form'
+
 
 import Login from './Login'
 
