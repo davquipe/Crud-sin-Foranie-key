@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import Card, { CardHeader, CardContent } from 'material-ui/Card'
 import Avatar from 'material-ui/Avatar'
 //import Typography from 'material-ui/Typography'
-//import TextField from 'material-ui/TextField';
+import TextField from 'material-ui/TextField';
 
-import { save, getById, update } from '../../actions/categoria-action'
+import { save, getById, update } from '../../actions/unidadMed-action'
 import { connect } from 'react-redux'
 
 class Form extends Component {
@@ -25,6 +25,7 @@ class Form extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             
+            codigo: props.data ? props.data.codigo : '',
             nombre: props.data ? props.data.nombre : ''
         }
     }
@@ -68,6 +69,7 @@ class Form extends Component {
                 this.setState({
                     id: data.id,
                     
+                    codigo: data.codigo,
                     nombre: data.nombre
                 });
             });
@@ -111,20 +113,33 @@ class Form extends Component {
                     subheader="Users Form"
                 />
                 <CardContent>
+                <TextField
+                        id="codigo"
+                        label="codigo"
+                        name="codigo"
+                        value={this.state.codigo}
+                        onChange={this.handleChange}
+                        margin="normal"
+                    /> 
+                    <p></p> 
+                    <TextField
+                        id="nombre"
+                        label="Nombre"
+                        name="nombre"
+                        value={this.state.nombre}
+                        onChange={this.handleChange}
+                        margin="normal"
+                    /> 
+                    <p></p> 
                     <form onSubmit={this.handleSubmit}>
-                       
-                        <br />
-
-                        <label>
-                            Nombre:
-                            <input type="text" name="nombre" value={this.state.nombre} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Submit" />
+                        <p>
+                        <button type="submit">Guardar</button>
+                      </p>
                     </form>
                 </CardContent>
             </Card>
         )
-    }
+    }   
 }
 
 Form.propTypes = {
@@ -134,7 +149,7 @@ Form.propTypes = {
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.categoria.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.unidadMed.list.find(item => item.id + '' === props.match.params.id + '')
         }
     }
     return {

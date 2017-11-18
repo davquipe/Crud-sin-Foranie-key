@@ -64,7 +64,7 @@ export function save(data, history) {
                     "type": UNIDADMED_ADD,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/uniadadMeds/list')
+                history.push('/catalogo/unidadMeds/list')
             })
             .catch((error) => {
                 console.log(error)
