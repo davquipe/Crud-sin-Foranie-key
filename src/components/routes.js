@@ -17,6 +17,8 @@ import AlmacenList  from './almacenes/List'
 import AlmacenForm  from './almacenes/Form'
 import ClienteList  from './clientes/List'
 import ClienteForm  from './clientes/Form'
+import UnidadMedList  from './unidadMeds/List'
+import UnidadMedForm  from './unidadMeds/Form'
 
 
 import Login from './Login'
@@ -255,6 +257,28 @@ const routes = [
         title: 'Editar Clientes',
         icon: 'dns',
         component: ClienteForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/unidadMeds/list',
+        exact: true,
+        title: 'Unidad de Medida',
+        icon: 'dns',
+        component: UnidadMedList
+      },
+      {
+        path: '/catalogo/unidadMeds/new',
+        exact: true,
+        title: 'Nueva Unidad de Medida',
+        component: UnidadMedForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/unidadMeds/edit/:id',
+        exact: true,
+        title: 'Editar Unidad de Medida',
+        icon: 'dns',
+        component: UnidadMedForm,
         novisible: true
       },
     ]
